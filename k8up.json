@@ -413,7 +413,7 @@
           },
           "editorMode": "code",
           "exemplar": false,
-          "expr": "k8up_jobs_total - k8up_schedules_gauge",
+          "expr": "sum(k8up_jobs_failed_counter{exported_namespace=~\"$namespace\"})",
           "instant": false,
           "legendFormat": "__auto",
           "range": true,
@@ -934,14 +934,14 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "k8up_backup_restic_available_snapshots{instance=~\"$namespace\"}",
+          "expr": "k8up_backup_restic_available_snapshots",
           "instant": false,
           "legendFormat": "{{instance}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Available snapshots per instance",
+      "title": "Available snapshots",
       "type": "timeseries"
     },
     {
@@ -1053,7 +1053,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "k8up_backup_restic_changed_directories_during_backup{instance=~\"$namespace\"}",
+          "expr": "k8up_backup_restic_changed_directories_during_backup{namespace=~\"$namespace\"}",
           "instant": false,
           "legendFormat": "{{instance}} - {{pvc}}",
           "range": true,
@@ -1147,7 +1147,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "k8up_backup_restic_changed_files_during_backup{instance=~\"$namespace\"}",
+          "expr": "k8up_backup_restic_changed_files_during_backup{namespace=~\"$namespace\"}",
           "format": "time_series",
           "instant": false,
           "legendFormat": "{{instance}} - {{pvc}}",
@@ -1242,14 +1242,14 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "k8up_backup_restic_changed_files_during_backup{instance=~\"$namespace\"}",
+          "expr": "k8up_backup_restic_new_files_during_backup{namespace=~\"$namespace\"}",
           "instant": false,
           "legendFormat": "{{instance}} - {{pvc}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "Changed files during backup per instance",
+      "title": "New files during backup per instance",
       "type": "timeseries"
     },
     {
@@ -1336,7 +1336,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "k8up_backup_restic_new_directories_during_backup{instance=~\"$namespace\"}",
+          "expr": "k8up_backup_restic_new_directories_during_backup{namespace=~\"$namespace\"}",
           "instant": false,
           "legendFormat": "{{instance}} - {{pvc}}",
           "range": true,
@@ -1430,14 +1430,14 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "k8up_backup_restic_new_directories_during_backup{instance=~\"$namespace\"}",
+          "expr": "k8up_backup_restic_last_errors{namespace=~\"$namespace\"}",
           "instant": false,
           "legendFormat": "{{instance}} - {{pvc}}",
           "range": true,
           "refId": "A"
         }
       ],
-      "title": "New directories during backup per instance",
+      "title": "Last errors per instance",
       "type": "timeseries"
     },
     {
@@ -1524,7 +1524,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "k8up_backup_restic_unmodified_directories_during_backup{instance=~\"$namespace\"}",
+          "expr": "k8up_backup_restic_unmodified_directories_during_backup{namespace=~\"$namespace\"}",
           "instant": false,
           "legendFormat": "{{instance}} - {{pvc}}",
           "range": true,
@@ -1618,7 +1618,7 @@
             "uid": "Prometheus"
           },
           "editorMode": "code",
-          "expr": "k8up_backup_restic_unmodified_files_during_backup{instance=~\"$namespace\"}",
+          "expr": "k8up_backup_restic_unmodified_files_during_backup{namespace=~\"$namespace\"}",
           "instant": false,
           "legendFormat": "{{instance}} - {{pvc}}",
           "range": true,
